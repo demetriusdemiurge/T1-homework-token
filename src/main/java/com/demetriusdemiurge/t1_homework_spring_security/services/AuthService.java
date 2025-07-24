@@ -18,7 +18,7 @@ public class AuthService {
     private final InMemoryUserDetailsService userDetailsService;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-    private final InMemoryTokenBlacklistService tokenBlacklistService;
+    private final TokenBlacklistService tokenBlacklistService;
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
@@ -69,6 +69,8 @@ public class AuthService {
 
     public void logout(String authHeader) {
         String token = authHeader.substring(7);
-        tokenBlacklistService.addToBlacklist(token);
+        long expiration = jwtService.getRemainingValidity(token);
+        tokenBlacklistService.addToBlacklist(token, expiration);
     }
+
 }

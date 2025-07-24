@@ -29,7 +29,7 @@ public class InMemoryUserDetailsService implements UserDetailsService {
 
     @PostConstruct
     public void init() {
-        // Создаем и сохраняем предустановленных пользователей
+
         save(User.builder().login("admin").email("admin@example.com").password("admin123").roles(Set.of(Role.ADMIN)).build());
         save(User.builder().login("premium").email("premium@example.com").password("premium123").roles(Set.of(Role.PREMIUM_USER)).build());
         save(User.builder().login("guest").email("guest@example.com").password("guest123").roles(Set.of(Role.GUEST)).build());

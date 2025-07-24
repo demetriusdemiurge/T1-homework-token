@@ -1,7 +1,7 @@
 package com.demetriusdemiurge.t1_homework_spring_security.configs;
 
-import com.demetriusdemiurge.t1_homework_spring_security.services.InMemoryTokenBlacklistService;
 import com.demetriusdemiurge.t1_homework_spring_security.services.JwtService;
+import com.demetriusdemiurge.t1_homework_spring_security.services.TokenBlacklistService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +24,14 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
-    private final InMemoryTokenBlacklistService tokenBlacklistService;
+    private final TokenBlacklistService tokenBlacklistService;
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        System.out.println("checking path: " + path);
+        return path.startsWith("/api/auth/");
+    }
 
     @Override
     protected void doFilterInternal(
@@ -49,21 +56,27 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             return;
         }
 
-        userLogin = jwtService.extractUsername(jwt);
+        try {
+            userLogin = jwtService.extractUsername(jwt);
 
-        if (userLogin != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(userLogin);
+            if (userLogin != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = this.userDetailsService.loadUserByUsername(userLogin);
 
-            if (jwtService.isTokenValid(jwt, userDetails)) {
-                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                        userDetails,
-                        null,
-                        userDetails.getAuthorities()
-                );
-                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authToken);
+                if (jwtService.isTokenValid(jwt, userDetails)) {
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                            userDetails,
+                            null,
+                            userDetails.getAuthorities()
+                    );
+                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                }
             }
+        } catch (Exception e) {
+            // Если JWT невалидный — просто пропускаем без установки контекста
+            logger.warn("JWT filter failed: " + e.getMessage());
         }
+
         filterChain.doFilter(request, response);
     }
 }
