@@ -73,7 +73,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception e) {
-            // Если JWT невалидный — просто пропускаем без установки контекста
+
             logger.warn("JWT filter failed: " + e.getMessage());
         }
 
