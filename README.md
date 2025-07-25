@@ -9,7 +9,7 @@ Spring Boot-проект с авторизацией по токенам и по
 - `InMemoryUserDetailsService` — in-memory хранилище пользователей
 - `RedisTokenBlacklistService` — хранение отозванных access токенов с TTL
 - `AuthController` — регистрация, логин, logout, refresh
-
+- `AdminController` — проверка админа
 ---
 
 ### 1. Конфигурация application.properties
@@ -104,7 +104,7 @@ Authorization: Bearer <accessToken>
 ### 5. Проверка Redis blacklist
 
 После выполнения logout в терминал написать:
-
+```
 docker exec -it redis redis-cli
 KEYS * 
-
+```
