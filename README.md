@@ -108,3 +108,7 @@ Authorization: Bearer <accessToken>
 docker exec -it redis redis-cli
 KEYS * 
 ```
+
+### 6. Тесты
+
+Для тестрирования необходимо запустить AuthServiceTest
