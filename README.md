@@ -116,6 +116,6 @@ Authorization: Bearer <accessToken>
 
 После выполнения logout в терминал написать:
 ```
-docker exec -it redis redis-cli
+docker exec -it redis-token redis-cli
 KEYS * 
 ```
