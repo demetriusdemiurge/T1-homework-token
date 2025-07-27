@@ -1,6 +1,5 @@
 package com.demetriusdemiurge.t1_homework_token.services;
 
-
 import com.demetriusdemiurge.t1_homework_token.entities.Role;
 import com.demetriusdemiurge.t1_homework_token.entities.User;
 import jakarta.annotation.PostConstruct;
