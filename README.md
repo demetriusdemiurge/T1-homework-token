@@ -11,10 +11,12 @@ Spring Boot-проект с авторизацией по токенам и по
 - `AdminController` — проверка админа
 - `JweService` — шифрование/расшифровка токена с помощью RSA
 - `RsaKeyLoader` — загрузка RSA-ключей из `.pem`
----
 
-RSA-ключи
-Хранятся в src/main/resources/keys/:
+Сначала генерируется обычный подписанный JWT
+Затем этот JWT зашифровывается в формате JWE с помощью RSA-OAEP-256 + AES-GCM (A256GCM)
+В результате невозможно прочитать содержимое токена даже при его перехвате
+
+RSA-ключи хранятся в src/main/resources/keys/:
 
 - `private_key.pem`
 - `public_key.pem`
