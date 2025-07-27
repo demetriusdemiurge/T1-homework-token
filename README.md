@@ -1,5 +1,4 @@
-# T1-homework-spring-security
-
+# T1-homework-token
 ## Состав проекта
 
 Spring Boot-проект с авторизацией по токенам и поддержкой ролей:
@@ -10,7 +9,19 @@ Spring Boot-проект с авторизацией по токенам и по
 - `RedisTokenBlacklistService` — хранение отозванных access токенов с TTL
 - `AuthController` — регистрация, логин, logout, refresh
 - `AdminController` — проверка админа
+- `JweService` — шифрование/расшифровка токена с помощью RSA
+- `RsaKeyLoader` — загрузка RSA-ключей из `.pem`
 ---
+
+RSA-ключи
+Хранятся в src/main/resources/keys/:
+
+- `private_key.pem`
+- `public_key.pem`
+
+Используются для JWE (шифрование токена открытым ключом, расшифровка — приватным)
+
+Генерируются Java-классом RsaKeyGenerator
 
 ### 1. Конфигурация application.properties
 
@@ -37,7 +48,7 @@ version: '3.8'
 services:
   redis:
     image: redis:7-alpine
-    container_name: redis
+    container_name: redis-token
     ports:
       - "6379:6379"
     restart: unless-stopped
@@ -47,7 +58,7 @@ Redis используется для хранения отозванных то
 
 ### 3. Запуск приложения
 
-Осуществляется запуском `T1HomeworkSpringSecurityApplication`
+Осуществляется запуском `T1HomeworkTokenApplication`
 
 ### 4. Эндпоинты
 
@@ -108,7 +119,3 @@ Authorization: Bearer <accessToken>
 docker exec -it redis redis-cli
 KEYS * 
 ```
-
-### 6. Тесты
-
-Для тестрирования необходимо запустить AuthServiceTest
