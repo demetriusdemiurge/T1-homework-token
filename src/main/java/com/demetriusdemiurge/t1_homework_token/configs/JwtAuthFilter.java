@@ -1,7 +1,7 @@
-package com.demetriusdemiurge.t1_homework_spring_security.configs;
+package com.demetriusdemiurge.t1_homework_token.configs;
 
-import com.demetriusdemiurge.t1_homework_spring_security.services.JwtService;
-import com.demetriusdemiurge.t1_homework_spring_security.services.TokenBlacklistService;
+import com.demetriusdemiurge.t1_homework_token.services.JwtService;
+import com.demetriusdemiurge.t1_homework_token.services.TokenBlacklistService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

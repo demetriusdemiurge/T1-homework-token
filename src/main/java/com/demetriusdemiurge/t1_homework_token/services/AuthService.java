@@ -1,10 +1,10 @@
-package com.demetriusdemiurge.t1_homework_spring_security.services;
+package com.demetriusdemiurge.t1_homework_token.services;
 
-import com.demetriusdemiurge.t1_homework_spring_security.dto.AuthenticationResponse;
-import com.demetriusdemiurge.t1_homework_spring_security.dto.LoginRequest;
-import com.demetriusdemiurge.t1_homework_spring_security.dto.RefreshTokenRequest;
-import com.demetriusdemiurge.t1_homework_spring_security.dto.RegisterRequest;
-import com.demetriusdemiurge.t1_homework_spring_security.entities.User;
+import com.demetriusdemiurge.t1_homework_token.dto.AuthenticationResponse;
+import com.demetriusdemiurge.t1_homework_token.dto.LoginRequest;
+import com.demetriusdemiurge.t1_homework_token.dto.RefreshTokenRequest;
+import com.demetriusdemiurge.t1_homework_token.dto.RegisterRequest;
+import com.demetriusdemiurge.t1_homework_token.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

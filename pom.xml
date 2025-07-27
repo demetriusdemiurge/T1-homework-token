@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.demetriusdemiurge</groupId>
-    <artifactId>T1_homework_spring_security</artifactId>
+    <artifactId>T1_homework_token</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>T1_homework_spring_security</name>
-    <description>T1_homework_spring_security</description>
+    <name>T1_homework_token</name>
+    <description>T1_homework_token</description>
     <url/>
     <licenses>
         <license/>
@@ -30,7 +30,11 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.37</version>
+        </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>

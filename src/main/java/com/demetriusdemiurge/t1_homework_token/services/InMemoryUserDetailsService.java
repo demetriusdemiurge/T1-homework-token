@@ -1,8 +1,8 @@
-package com.demetriusdemiurge.t1_homework_spring_security.services;
+package com.demetriusdemiurge.t1_homework_token.services;
 
 
-import com.demetriusdemiurge.t1_homework_spring_security.entities.Role;
-import com.demetriusdemiurge.t1_homework_spring_security.entities.User;
+import com.demetriusdemiurge.t1_homework_token.entities.Role;
+import com.demetriusdemiurge.t1_homework_token.entities.User;
 import jakarta.annotation.PostConstruct;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

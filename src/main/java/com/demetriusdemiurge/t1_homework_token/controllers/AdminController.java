@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_security.controllers;
+package com.demetriusdemiurge.t1_homework_token.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

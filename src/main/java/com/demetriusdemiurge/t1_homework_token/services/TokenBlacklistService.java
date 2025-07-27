@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_security.services;
+package com.demetriusdemiurge.t1_homework_token.services;
 
 public interface TokenBlacklistService {
     void addToBlacklist(String token, long expirationMillis);

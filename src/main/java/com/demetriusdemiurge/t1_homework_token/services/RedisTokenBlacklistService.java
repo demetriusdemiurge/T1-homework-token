@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_security.services;
+package com.demetriusdemiurge.t1_homework_token.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;

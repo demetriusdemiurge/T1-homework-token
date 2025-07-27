@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_security.dto;
+package com.demetriusdemiurge.t1_homework_token.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RefreshTokenRequest {
+public class AuthenticationResponse {
+    private String accessToken;
     private String refreshToken;
 }

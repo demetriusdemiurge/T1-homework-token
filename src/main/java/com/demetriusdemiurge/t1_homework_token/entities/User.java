@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_security.entities;
+package com.demetriusdemiurge.t1_homework_token.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,6 @@
-package com.demetriusdemiurge.t1_homework_spring_security.dto;
+package com.demetriusdemiurge.t1_homework_token.dto;
 
-import com.demetriusdemiurge.t1_homework_spring_security.entities.Role;
+import com.demetriusdemiurge.t1_homework_token.entities.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

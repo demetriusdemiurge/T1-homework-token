@@ -1,4 +1,4 @@
-package com.demetriusdemiurge.t1_homework_spring_security.configs;
+package com.demetriusdemiurge.t1_homework_token.configs;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
